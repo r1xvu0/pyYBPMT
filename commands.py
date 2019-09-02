@@ -1,12 +1,12 @@
 import main
 
+global totalValue
 
 # Function to Continue or Quit the program
 def cont():
     conti = int(input("Do you wish to Continue[1] or Exit[2]?\n"))
     if conti == 1:
         print("")
-        main()
     elif conti == 2:
         quit()
     else:
@@ -77,7 +77,13 @@ def option3():
     totalValue = amountTraded * btcValue
     print("Your " + str(amountTraded) + " BTC is worth $" + str(totalValue) + "$ at Value of " + str(btcValue) + " per Coin")
     print("")
-    cont()
+    choice = int(input("Would you like to save the result? Y[1]/N[2]"))
+    if choice == 1:
+        save("worth", totalValue)
+    elif choice == 2:
+        cont()
+    else:
+        print("Wrong choice!")
 
 
 # 4 Function for How Many Coins
@@ -90,16 +96,11 @@ def option4():
     global coinsNeeded
     coinsNeeded = totalValue / (btcSellValue - btcValue)
     print("You would need to have " + str(coinsNeeded) + " BTC to reach your expected profit!")
-    choice = int(input("Would you like to save the result? Y[1]/N[2]"))
-    if choice == 1:
-        save()
-    elif choice == 2:
-        cont()
-    else:
-        print("Wrong choice!")
 
 
-def save():
+
+def save(file, option):
     print("Saving to file Now...")
-    fileWrite = open("data/data.btc", "+w")
-    fileWrite.write(str(coinsNeeded))
+    fileWrite = open("data/" + file + ".btc", "+a")
+    fileWrite.writelines(str(option) + "\n")
+    cont()
