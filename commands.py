@@ -1,8 +1,10 @@
 import main
+import os
 
 global totalValue
 
-# Function to Continue or Quit the program
+
+# Function to Continue or Quit the program #
 def cont():
     conti = int(input("Do you wish to Continue[1] or Exit[2]?\n"))
     if conti == 1:
@@ -13,7 +15,7 @@ def cont():
         print("Wrong choice")
 
 
-# 1 Function for BTC Profit
+# 1 Function for BTC Profit #
 def option1():
     # Take all vars #
     print("\nEnter BTC at Buy Position:")
@@ -50,10 +52,34 @@ def option1():
     percGain = (increase / btcValue) * 100
     print("Your percentage gain is: " + str(percGain) + "%")
     print("")
-    cont()
 
+    choice = int(input("Would you like to save the result? Y[1]/N[2]"))
+    if choice == 1:
+        save("profit", profit)
+    elif choice == 2:
+        cont()
+    else:
+        print("Wrong choice!")
 
-# 2 Function for EXPECTED RESULT
+def option11():
+    print("Looking for data file...")
+    if os.path.exists("data/profit.btc"):
+        print("File Found!\nOpening...")
+        fileRead = open("data/profit.btc", "+r")
+        avprofit = fileRead.readlines()
+
+        x = 0
+        sum = 0.0
+        for line in avprofit:
+            print(avprofit[x])
+            sum += float(avprofit[x])
+            x += 1
+
+        average = int(sum) / int(len(avprofit))
+        print("Your average BTC Value is " + str(average))
+        cont()
+
+# 2 Function for EXPECTED RESULT #
 def option2():
     expectedResult = 0
     amountOwned = 0
@@ -69,7 +95,7 @@ def option2():
     cont()
 
 
-# 3 Function for BTC Worth
+# 3 Function for BTC Worth #
 def option3():
     print("")
     btcValue = float(input("BTC Value Now:\n"))
@@ -79,14 +105,39 @@ def option3():
     print("")
     choice = int(input("Would you like to save the result? Y[1]/N[2]"))
     if choice == 1:
-        save("worth", totalValue)
+        save("networth", totalValue)
     elif choice == 2:
         cont()
     else:
         print("Wrong choice!")
 
 
-# 4 Function for How Many Coins
+# 3.1 Function MY AVERAGE BTC #
+def option31():
+    print("Looking for data file...")
+    if os.path.exists("data/networth.btc"):
+        print("File Found!\nOpening...")
+        fileRead = open("data/networth.btc", "+r")
+        networth = fileRead.readlines()
+
+        x = 0
+        sum = 0.0
+        for line in networth:
+            print(networth[x])
+            sum += float(networth[x])
+            x += 1
+
+        average = int(sum) / int(len(networth))
+        print("Your average BTC Value is " + str(average))
+        cont()
+
+    else:
+        print("Data file not found\nPlease save some results before trying again!\n")
+        input("PRESS ENTER TO CONTINUE\n")
+    return
+
+
+# 4 Function for How Many Coins #
 def option4():
     print("")
     totalValue = float(input("Enter expected profit:\n"))
@@ -96,7 +147,7 @@ def option4():
     global coinsNeeded
     coinsNeeded = totalValue / (btcSellValue - btcValue)
     print("You would need to have " + str(coinsNeeded) + " BTC to reach your expected profit!")
-
+    cont()
 
 
 def save(file, option):
