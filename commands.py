@@ -78,6 +78,10 @@ def option11():
         average = int(sum) / int(len(avprofit))
         print("Your average BTC Value is " + str(average))
         cont()
+    else:
+        print("Data file not found\nPlease save some results before trying again!\n")
+        input("PRESS ENTER TO CONTINUE\n")
+    return
 
 # 2 Function for EXPECTED RESULT #
 def option2():
