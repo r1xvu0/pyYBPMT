@@ -26,12 +26,13 @@ def main():
         print("\t\t\t\t\t  -=########## Py-V1.0 ##########=-")
         print("\t\t\t\t\t -=###############################=-")
         print("Choose one:")
-        print("1. BTC Profit Calculator")
+        print("1.  BTC Profit Calculator")
         print("1.1 BTC Average Profit")
-        print("2. How High it has to go?")
-        print("3. What is my BTC worth?")
+        print("2.  How High it has to go?")
+        print("3.  What is my BTC worth?")
         print("3.1 Your average BTC Value")
-        print("4. How much coins I need for profit?")
+        print("4.  How much coins I need for profit?")
+        print("0.  Exit")
         choice = float(input("Enter Option Number #:\n"))
         # CHOICE OF CASE  //IF #
         # CHOICE #0 EXIT #
