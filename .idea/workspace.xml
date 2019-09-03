@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aad790b6-e816-428a-8d5c-5045801fa34f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/_bz2.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/_hashlib.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/_lzma.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/_socket.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/_ssl.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/email/architecture.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/pydoc_data/_pydoc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/pyexpat.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/select.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/lib/unicodedata.pyd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/main.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/exe.win-amd64-3.6/python36.dll" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

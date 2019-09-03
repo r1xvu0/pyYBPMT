@@ -36,32 +36,37 @@ def main():
         choice = float(input("Enter Option Number #: "))
         # CHOICE OF CASE  //IF #
         # CHOICE #0 EXIT #
-        if choice == 0:
-            programRun = 0
+        try:
+            if choice == 0:
+                programRun = 0
 
         # CHOICE #1 BTC PROFIT FUNC CALL #
-        elif choice == 1:
-            commands.option1()
+            elif choice == 1:
+                commands.option1()
         # CHOICE #1.1 AVERAGE PROFIT #
-        elif choice == 1.1:
-            commands.option11()
+            elif choice == 1.1:
+                commands.option11()
         # CHOICE #2 HOW HIGH #
-        elif choice == 2:
-            commands.option2()
+            elif choice == 2:
+                commands.option2()
         # CHOICE #3 BTC WORTH #
-        elif choice == 3:
-            commands.option3()
+            elif choice == 3:
+                commands.option3()
         # CHOICE #5 AVERAGE BTC #
-        elif choice == 3.1:
-            commands.option31()
+            elif choice == 3.1:
+                commands.option31()
         # CHOICE #4 PROFIT NEED #
-        elif choice == 4:
-            commands.option4()
+            elif choice == 4:
+                commands.option4()
 
-        else:
-            print("\n\n404#EXPECTED CHOICE ERROR#404\n\n")
-            input("PRESS ENTER TO CONTINUE\n")
+            else:
+                print("\n\n404#EXPECTED CHOICE ERROR#404\n\n")
+                input("PRESS ENTER TO CONTINUE\n")
 
+        except ValueError:
+            print("Invalid syntax")
+            print("Please don't use Commas, use Dots")
+            input("PRESS ENTER TO CONTINUE")
 
 # RUNTIME LAYER #
 if __name__ == "__main__":

@@ -12,9 +12,9 @@ options = {
 }
 
 setup(
-    name = "<any name>",
+    name = "YBPMT",
     options = options,
-    version = "<any number>",
-    description = '<any description>',
+    version = "v1.0",
+    description = 'Mayor Release',
     executables = executables
 )
