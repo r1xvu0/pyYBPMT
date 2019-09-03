@@ -33,7 +33,7 @@ def main():
         print("3.1 Your average BTC Value")
         print("4.  How much coins I need for profit?")
         print("0.  Exit")
-        choice = float(input("Enter Option Number #:\n"))
+        choice = float(input("Enter Option Number #: "))
         # CHOICE OF CASE  //IF #
         # CHOICE #0 EXIT #
         if choice == 0:
