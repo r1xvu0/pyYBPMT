@@ -1,14 +1,15 @@
 # pyYBPMT - Yannick's Bitcoin Profit MultiTool
  
 pyYBPMT is Yannick's Bitcoin Profit MultiTool calculator rewritten from C# into Python due to easier managing.
+
 Original Link: https://github.com/r1xvu0/YBPMC
 
 ## Version Py-V1.0 Released
 The basics of the app are done. There might be some ocassional errors but the app should be fully functional and usable
 
-![Screenshot01](https://imgur.com/UKGeyKv)
+![Screenshot01](https://raw.githubusercontent.com/r1xvu0/pyYBPMT/master/img/ybpmt-prnt-func.PNG?token=AM2DJBS47TK3ZEXAGC4MR5S5NZHFM)
 
-![Screenshot02](https://imgur.com/Mag8BZQ)
+![Screenshot02](https://raw.githubusercontent.com/r1xvu0/pyYBPMT/master/img/ybpmt-prnt.PNG?token=AM2DJBRWYCHDY76JXMUSOD25NZHL6)
 
 ## The App at this moment can:
  1. Calculate your profit on Shorts/Longs together with fees
