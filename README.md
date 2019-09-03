@@ -6,6 +6,9 @@ Original Link: https://github.com/r1xvu0/YBPMC
 ## Version Py-V1.0 Released
 The basics of the app are done. There might be some ocassional errors but the app should be fully functional and usable
 
+![Screenshot01](https://imgur.com/UKGeyKv)
+
+![Screenshot02](https://imgur.com/Mag8BZQ)
 
 ## The App at this moment can:
  1. Calculate your profit on Shorts/Longs together with fees
