@@ -1,7 +1,9 @@
 import main
 import os
+import requests
 
 global totalValue
+BITCOIN_API_URL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
 
 
 # Function to Continue or Quit the program #
@@ -61,6 +63,7 @@ def option1():
     else:
         print("Wrong choice!")
 
+# 1.1 Function for Average BTC Profit #
 def option11():
     print("Looking for data file...")
     if os.path.exists("data/profit.btc"):
@@ -154,8 +157,21 @@ def option4():
     cont()
 
 
+# Function to show Live BTC Price #
+def option5():
+    response = requests.get(BITCOIN_API_URL)
+    response_json = response.json()
+    print("BTC Price now is: " + str(response_json[0]['price_usd']))
+    cont()
+
+
+# Function Save to File #
 def save(file, option):
     print("Saving to file Now...")
     fileWrite = open("data/" + file + ".btc", "+a")
     fileWrite.writelines(str(option) + "\n")
     cont()
+
+
+
+

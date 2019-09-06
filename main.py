@@ -2,7 +2,7 @@
 import sys
 import commands
 import os
-
+import json
 
 def main():
     # SHITLOAD OF VARS ###
@@ -23,7 +23,7 @@ def main():
     while programRun == 1:
         print("\t\t\t\t\t -=###############################=-")
         print("\t\t\t\t\t -=###### Welcome to YBPMT ######=-")
-        print("\t\t\t\t\t  -=########## Py-V1.0 ##########=-")
+        print("\t\t\t\t\t  -=########## Py-V1.1 ##########=-")
         print("\t\t\t\t\t -=###############################=-")
         print("Choose one:")
         print("1.  BTC Profit Calculator")
@@ -32,6 +32,7 @@ def main():
         print("3.  What is my BTC worth?")
         print("3.1 Your average BTC Value")
         print("4.  How much coins I need for profit?")
+        print("5.  BTC Live Price // Coinmarketcap")
         print("0.  Exit")
         choice = float(input("Enter Option Number #: "))
         # CHOICE OF CASE  //IF #
@@ -58,7 +59,9 @@ def main():
         # CHOICE #4 PROFIT NEED #
             elif choice == 4:
                 commands.option4()
-
+        # CHOICE #5 BTC LIVE PRICE #
+            elif choice == 5:
+                commands.option5()
             else:
                 print("\n\n404#EXPECTED CHOICE ERROR#404\n\n")
                 input("PRESS ENTER TO CONTINUE\n")
@@ -67,6 +70,8 @@ def main():
             print("Invalid syntax")
             print("Please don't use Commas, use Dots")
             input("PRESS ENTER TO CONTINUE")
+
+
 
 # RUNTIME LAYER #
 if __name__ == "__main__":
