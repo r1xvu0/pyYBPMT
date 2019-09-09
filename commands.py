@@ -63,6 +63,7 @@ def option1():
     else:
         print("Wrong choice!")
 
+
 # 1.1 Function for Average BTC Profit #
 def option11():
     print("Looking for data file...")
@@ -85,6 +86,7 @@ def option11():
         print("Data file not found\nPlease save some results before trying again!\n")
         input("PRESS ENTER TO CONTINUE\n")
     return
+
 
 # 2 Function for EXPECTED RESULT #
 def option2():
@@ -167,11 +169,19 @@ def option5():
 
 # Function Save to File #
 def save(file, option):
-    print("Saving to file Now...")
-    fileWrite = open("data/" + file + ".btc", "+a")
-    fileWrite.writelines(str(option) + "\n")
-    cont()
-
+    if os.path.exists("data/"):
+        print("Saving to file Now...")
+        fileWrite = open("data/" + file + ".btc", "+a")
+        fileWrite.writelines(str(option) + "\n")
+        cont()
+    else:
+        print("Directory not found. Creating it now!")
+        os.mkdir("data")
+        print("Directory Data created.")
+        print("Saving to file Now...")
+        fileWrite = open("data/" + file + ".btc", "+a")
+        fileWrite.writelines(str(option) + "\n")
+        cont()
 
 
 
