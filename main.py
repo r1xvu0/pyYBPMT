@@ -4,6 +4,7 @@ import commands
 import os
 import json
 
+
 def main():
     # SHITLOAD OF VARS ###
     programRun = 1
@@ -21,26 +22,16 @@ def main():
 
     # Making sure we loop back at the start of the program #
     while programRun == 1:
-        print("\t\t\t\t\t -=###############################=-")
-        print("\t\t\t\t\t -=###### Welcome to YBPMT ######=-")
-        print("\t\t\t\t\t  -=########## Py-V1.1 ##########=-")
-        print("\t\t\t\t\t -=###############################=-")
-        print("Choose one:")
-        print("1.  BTC Profit Calculator")
-        print("1.1 BTC Average Profit")
-        print("2.  How High it has to go?")
-        print("3.  What is my BTC worth?")
-        print("3.1 Your average BTC Value")
-        print("4.  How much coins I need for profit?")
-        print("5.  BTC Live Price // Coinmarketcap")
-        print("0.  Exit")
-        choice = float(input("Enter Option Number #: "))
+        commands.menu()
+
         # CHOICE OF CASE  //IF #
         # CHOICE #0 EXIT #
+        # TRY TO EXCEPT VALUEERROR #
         try:
+            choice = float(input("Enter Option Number #: "))
+
             if choice == 0:
                 programRun = 0
-
         # CHOICE #1 BTC PROFIT FUNC CALL #
             elif choice == 1:
                 commands.option1()
@@ -62,6 +53,7 @@ def main():
         # CHOICE #5 BTC LIVE PRICE #
             elif choice == 5:
                 commands.option5()
+        # Expect wrong choice #
             else:
                 print("\n\n404#EXPECTED CHOICE ERROR#404\n\n")
                 input("PRESS ENTER TO CONTINUE\n")

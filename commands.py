@@ -6,6 +6,23 @@ global totalValue
 BITCOIN_API_URL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
 
 
+# Main Menu print #
+def menu():
+    print("\t\t\t\t\t -=###############################=-")
+    print("\t\t\t\t\t -=###### Welcome to YBPMT ######=-")
+    print("\t\t\t\t\t  -=########## Py-V1.1 ##########=-")
+    print("\t\t\t\t\t -=###############################=-")
+    print("Choose one:")
+    print("1.  BTC Profit Calculator")
+    print("1.1 BTC Average Profit")
+    print("2.  How High it has to go?")
+    print("3.  What is my BTC worth?")
+    print("3.1 Your average BTC Value")
+    print("4.  Coin price for Profit")
+    print("5.  BTC Live Price // Coinmarketcap")
+    print("0.  Exit")
+
+
 # Function to Continue or Quit the program #
 def cont():
     conti = int(input("Do you wish to Continue[1] or Exit[2]?\n"))
@@ -14,7 +31,7 @@ def cont():
     elif conti == 2:
         quit()
     else:
-        print("Wrong choice")
+        print("Wrong choice, automatically continuing")
 
 
 # 1 Function for BTC Profit #
@@ -90,9 +107,6 @@ def option11():
 
 # 2 Function for EXPECTED RESULT #
 def option2():
-    expectedResult = 0
-    amountOwned = 0
-    valueNeeded = 0
     print("")
     expectedResult = float(input("What is your expected result: "))
     amountOwned = float(input("How much coins do you own: "))
