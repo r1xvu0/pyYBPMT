@@ -175,9 +175,9 @@ def option4():
 
 # Function to show Live BTC Price #
 def option5():
-    response = requests.get(BITCOIN_API_URL)
-    response_json = response.json()
-    print("BTC Price now is: " + str(response_json[0]['price_usd']))
+    livePrice = requests.get(BITCOIN_API_URL)
+    livePrice_json = livePrice.json()
+    print("BTC Price now is: " + str(livePrice_json[0]['price_usd']))
     cont()
 
 
