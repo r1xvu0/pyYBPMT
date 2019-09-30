@@ -1,0 +1,21 @@
+v1.3 to 1.32
+=	   =
+-Update Option Added
+-Leverage Option Added under (1)
+-Version Tag fixed
+-Updating got fixed in big part *still might have eventual probs
+--------------------------------------
+v1.2 to v1.3
+=          =
+Made working updater for .py and .exe
+--------------------------------------
+v1.11 to v1.2
+=           =
+Got rid of useless prints and made one with Docstrings
+Polished Menu
+New Page - Nothing there tho yet
+Console Auto Cleaning with os.system('cls') - TBC to support other interpreters
+--------------------------------------
+v1.0 to 1.1x
+=          =
+Unfortunately too much to list

@@ -1,26 +1,130 @@
 import main
 import os
 import requests
+import time
+import wget
 
 global totalValue
 BITCOIN_API_URL = 'https://api.coinmarketcap.com/v1/ticker/bitcoin/'
 
 
+def norm(a):
+    return ' '.join([a[i:i + 3] for i in range(0, len(a), 3)])
+
+
+def update():
+    new_version = open("pyybpmt_version.cfg")
+    newer = new_version.readlines()
+    new = float(newer[0])
+    if os.path.exists("update"):
+        print("Preparing update folder...")
+    else:
+        print("Update folder does not exist, creating it...")
+        os.mkdir("update")
+
+    if os.path.exists('main.py') & os.path.exists('commands.py'):
+        print("Downloading Source Update for PyYBPMT v" + str(new))
+        src = "https://johnyxmd.keybase.pub/pyYBPMT_v" + str(new) + "_source.zip?dl=1"
+        wget.download(src, out="update/")
+        print("")
+        print("Done")
+        print("How to Update:")
+        print("Close PyYBPMT, go to update folder, extract the zip file and rewrite all files")
+        input()
+        quit()
+
+    elif os.path.exists('PyYBPMT.exe'):
+        print("Downloading Executable Update for PyYBPMT v" + str(new))
+        exe = "https://johnyxmd.keybase.pub/PyYBPMT_v" + str(new) + ".exe?dl=1"
+        wget.download(exe, out="update/")
+        print("")
+        print("Done")
+        print("How to Update:")
+        print("Close PyYBPMT, go to update folder, copy and rewrite the old PyYBPMT with the new one\nThe PyYBPMT_vXX.XX rename to PyYBPMT")
+        input()
+        quit()
+
+    else:
+        print("Unknown Runner!!!!!!!")
+
+
+def check_update():
+    if os.path.exists('pyybpmt_version.cfg'):
+        print("Old version file detected")
+        os.remove("pyybpmt_version.cfg")
+        print("Deleting Old files...")
+        input("Enter to continue")
+        check_update()
+
+    else:
+        print("Checking for Update...")
+        url = "https://johnyxmd.keybase.pub/pyybpmt_version.cfg?dl=1"
+        wget.download(url)
+        version = main.version
+        new_version = open("pyybpmt_version.cfg")
+        newer = new_version.readlines()
+        new = float(newer[0])
+        print("")
+        if version == new:
+            print("Version " + str(newer[0]) + " Detected")
+            print("Your version of PyYBPMT is Up-to-Date!")
+            cont()
+        elif version > new:
+            print("Somehow you managed to get Unreleased Version... You sick son of a ...")
+            cont()
+        elif version < new:
+            print("Detected old version " + str(version) + " of PyYBPMT")
+            print("Newest version detected: " + str(newer[0]))
+            upd = int(input("Do you wish to Update? Y[1]/N[2]"))
+            if upd == 1:
+                update()
+            else:
+                print("Okay then!")
+                cont()
+        else:
+            print("Wrong")
+
+
 # Main Menu print #
 def menu():
-    print("\t\t\t\t\t -=###############################=-")
-    print("\t\t\t\t\t -=###### Welcome to YBPMT ######=-")
-    print("\t\t\t\t\t  -=########## Py-V1.1 ##########=-")
-    print("\t\t\t\t\t -=###############################=-")
-    print("Choose one:")
-    print("1.  BTC Profit Calculator")
-    print("1.1 BTC Average Profit")
-    print("2.  How High it has to go?")
-    print("3.  What is my BTC worth?")
-    print("3.1 Your average BTC Value")
-    print("4.  Coin price for Profit")
-    print("5.  BTC Live Price // Coinmarketcap")
-    print("0.  Exit")
+    print('''
+    ###############################################
+    ###############################################
+    ############# Welcome to PyYBPMT ##############
+    ###############################################
+    ################# Py-v1.3 #####################
+    ###############################################
+    ###############################################
+    ###############################################
+
+    1.  BTC Profit Calculator          7.  *UPDATE* 
+    1.1 BTC Average Profit                
+    2.  How High it has to go?            
+    3.  What is my BTC worth?             
+    3.1 Your average BTC Value            
+    4.  Coin price for Profit             
+    5.  BTC Live Price - CoinMarketCap    
+    6.  Next Page -->                      
+    0.  Exit                              
+
+    ''')
+
+
+def menu2():
+    print('''
+    ###############################################
+    ###############################################
+    ############# Welcome to PyYBPMT ##############
+    ###############################################
+    ################# Py-v1.3 #####################
+    ###############################################
+    ############ www.yannickworks.cf ##############
+    ###############################################
+    ###############################################
+
+    1.  KeyBase (NOT WORKING)
+    0.  <-- Back
+    ''')
 
 
 # Function to Continue or Quit the program #
@@ -28,9 +132,12 @@ def cont():
     conti = int(input("Do you wish to Continue[1] or Exit[2]?\n"))
     if conti == 1:
         print("")
+
     elif conti == 2:
+        os.system("cls" if os.name == "nt" else "clear")
         quit()
     else:
+
         print("Wrong choice, automatically continuing")
 
 
@@ -46,12 +153,15 @@ def option1():
     print("Enter amount of BTC Traded:")
     amountTraded = float(input())
 
-    print("Enter your Exchange Fees:")
+    print("Enter your Leverage X:")
+    leverageUsed = float(input())
+
+    print("Enter your Exchange Fees (x%):")
     exchangeFee = float(input())
 
     # Calculate #
     profit = (btcSellValue * amountTraded) - (btcValue * amountTraded)
-    totalValue = profit + (btcValue * amountTraded)
+    totalValue = (profit + (btcValue * amountTraded)) / leverageUsed
 
     # Results #
     print("Your pure profit is: " + str(profit))
@@ -71,7 +181,6 @@ def option1():
     percGain = (increase / btcValue) * 100
     print("Your percentage gain is: " + str(percGain) + "%")
     print("")
-
     choice = int(input("Would you like to save the result? Y[1]/N[2]"))
     if choice == 1:
         save("profit", profit)
@@ -135,6 +244,7 @@ def option3():
         print("Wrong choice!")
 
 
+
 # 3.1 Function MY AVERAGE BTC #
 def option31():
     print("Looking for data file...")
@@ -156,7 +266,7 @@ def option31():
 
     else:
         print("Data file not found\nPlease save some results before trying again!\n")
-        input("PRESS ENTER TO CONTINUE\n")
+        cont()
     return
 
 
@@ -178,6 +288,9 @@ def option5():
     livePrice = requests.get(BITCOIN_API_URL)
     livePrice_json = livePrice.json()
     print("BTC Price now is: " + str(livePrice_json[0]['price_usd']))
+    print("BTC Available supply now is: " + str(norm(livePrice_json[0]['available_supply'])))
+    k = livePrice_json[0]['24h_volume_usd']
+    print("24H Volume is at: " + str(norm(k)))
     cont()
 
 
@@ -196,6 +309,4 @@ def save(file, option):
         fileWrite = open("data/" + file + ".btc", "+a")
         fileWrite.writelines(str(option) + "\n")
         cont()
-
-
 

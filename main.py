@@ -5,6 +5,9 @@ import os
 import json
 
 
+version = 1.31
+
+
 def main():
     # SHITLOAD OF VARS ###
     programRun = 1
@@ -22,6 +25,7 @@ def main():
 
     # Making sure we loop back at the start of the program #
     while programRun == 1:
+        os.system("cls" if os.name == "nt" else "clear")
         commands.menu()
 
         # CHOICE OF CASE  //IF #
@@ -53,10 +57,42 @@ def main():
         # CHOICE #5 BTC LIVE PRICE #
             elif choice == 5:
                 commands.option5()
+        # Page 2 of the List #
+            elif choice == 6:
+                programRun = 2
+            elif choice == 7:
+                commands.check_update()
         # Expect wrong choice #
             else:
                 print("\n\n404#EXPECTED CHOICE ERROR#404\n\n")
                 input("PRESS ENTER TO CONTINUE\n")
+
+        except ValueError:
+            print("Invalid syntax")
+            print("Please don't use Commas, use Dots")
+            input("PRESS ENTER TO CONTINUE")
+
+
+    while programRun == 2:
+        os.system("cls" if os.name == "nt" else "clear")
+        commands.menu2()
+
+        try:
+
+            choice = int(input("Enter Option Number #: "))
+
+            if choice == 0:
+                os.system("cls" if os.name == "nt" else "clear")
+                programRun = 1
+                main()
+            elif choice == 1:
+                print("SoonTM")
+                input("Enter to Continue")
+                os.system('cls')
+            else:
+                print("\n\n404#EXPECTED CHOICE ERROR#404\n\n")
+                input("PRESS ENTER TO CONTINUE\n")
+                os.system("cls" if os.name == "nt" else "clear")
 
         except ValueError:
             print("Invalid syntax")

@@ -1,0 +1,1 @@
+pyinstaller --onefile --hidden-import=encodings --icon=btc.ico main.py
